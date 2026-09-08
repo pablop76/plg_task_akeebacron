@@ -1,0 +1,21 @@
+# Lokalna notatka robocza — nie publikować
+/CLAUDE.md
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+
+# Paczki wydań
+/dist/
+*.zip

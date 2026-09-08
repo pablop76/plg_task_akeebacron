@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="plugin" group="task" method="upgrade">
+	<name>PLG_TASK_AKEEBACRON</name>
+	<author>Paweł Półtoraczyk</author>
+	<authorUrl>https://web-service.com.pl</authorUrl>
+	<creationDate>2026-09-08</creationDate>
+	<copyright>(C) 2026 Paweł Półtoraczyk</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>1.0.0</version>
+	<description>PLG_TASK_AKEEBACRON_XML_DESCRIPTION</description>
+	<namespace path="src">Pablop76\Plugin\Task\Akeebacron</namespace>
+	<files>
+		<folder plugin="akeebacron">services</folder>
+		<folder>forms</folder>
+		<folder>language</folder>
+		<folder>src</folder>
+	</files>
+</extension>

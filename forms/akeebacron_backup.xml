@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<form>
+	<fields name="params">
+		<fieldset name="task_params">
+			<field
+				name="profile_id"
+				type="sql"
+				label="PLG_TASK_AKEEBACRON_BACKUP_PROFILE_LABEL"
+				description="PLG_TASK_AKEEBACRON_BACKUP_PROFILE_DESC"
+				query="SELECT id, CONCAT('#', id, ': ', description) AS description FROM #__akeebabackup_profiles ORDER BY id ASC"
+				key_field="id"
+				value_field="description"
+				default="1"
+				required="true"
+				validate="options"
+				filter="int"
+			/>
+			<field
+				name="freshness_source"
+				type="list"
+				label="PLG_TASK_AKEEBACRON_BACKUP_FRESHNESS_LABEL"
+				description="PLG_TASK_AKEEBACRON_BACKUP_FRESHNESS_DESC"
+				default="quickicon"
+				validate="options"
+			>
+				<option value="quickicon">PLG_TASK_AKEEBACRON_BACKUP_FRESHNESS_QUICKICON</option>
+				<option value="custom">PLG_TASK_AKEEBACRON_BACKUP_FRESHNESS_CUSTOM</option>
+				<option value="always">PLG_TASK_AKEEBACRON_BACKUP_FRESHNESS_ALWAYS</option>
+			</field>
+			<field
+				name="max_age_hours"
+				type="number"
+				label="PLG_TASK_AKEEBACRON_BACKUP_MAXAGE_LABEL"
+				description="PLG_TASK_AKEEBACRON_BACKUP_MAXAGE_DESC"
+				default="24"
+				min="1"
+				max="87600"
+				step="1"
+				validate="number"
+				filter="int"
+				showon="freshness_source:custom"
+			/>
+			<field
+				name="description"
+				type="text"
+				label="PLG_TASK_AKEEBACRON_BACKUP_DESCRIPTION_LABEL"
+				description="PLG_TASK_AKEEBACRON_BACKUP_DESCRIPTION_DESC"
+				maxlength="255"
+				filter="string"
+			/>
+			<field
+				name="time_limit"
+				type="number"
+				label="PLG_TASK_AKEEBACRON_BACKUP_TIMELIMIT_LABEL"
+				description="PLG_TASK_AKEEBACRON_BACKUP_TIMELIMIT_DESC"
+				default="30"
+				min="0"
+				max="3600"
+				step="1"
+				validate="number"
+				filter="int"
+			/>
+		</fieldset>
+	</fields>
+</form>
