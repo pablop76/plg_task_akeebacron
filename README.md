@@ -87,6 +87,12 @@ pokazuje na liście jako „Joomla Scheduled Tasks".
 
 ## Jak wyzwalać zadania Joomli
 
+**Wtyczka nie uruchamia się sama.** Odpowiada tylko za to, *co* się dzieje, gdy
+zadanie ruszy. O tym, *kiedy* rusza, decyduje wyzwalacz schedulera — Joomla nie ma
+procesu chodzącego w tle, więc bez wyzwalacza zadanie leży w bazie i kopia nie
+powstaje nigdy. Ten rozdział trzeba przejść przy wdrożeniu, inaczej reszta
+konfiguracji nie ma znaczenia.
+
 - **Cron z wiersza poleceń** (zalecane):
   `php /ścieżka/do/witryny/cli/joomla.php scheduler:run --all`
 - **Webcron** — adres z kluczem, ustawiany w `Zadania planowane → Opcje`
