@@ -12,7 +12,7 @@
  * @package     plg_task_akeebacron
  * @author      Paweł Półtoraczyk <https://web-service.com.pl>
  * @copyright   (C) 2026 Paweł Półtoraczyk
- * @license     GNU General Public License version 2 or later
+ * @license     GNU General Public License version 3 or later
  */
 
 $root     = __DIR__;
@@ -31,6 +31,10 @@ $sources = ['akeebacron.xml'];
 
 foreach ($xml->files->folder as $folder) {
     $sources[] = (string) $folder;
+}
+
+foreach ($xml->files->filename as $filename) {
+    $sources[] = (string) $filename;
 }
 
 $distDir = $root . '/dist';

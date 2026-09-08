@@ -4,7 +4,7 @@
  * @package     plg_task_akeebacron
  * @author      Paweł Półtoraczyk <https://web-service.com.pl>
  * @copyright   (C) 2026 Paweł Półtoraczyk
- * @license     GNU General Public License version 2 or later
+ * @license     GNU General Public License version 3 or later
  */
 
 // no direct access

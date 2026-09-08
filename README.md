@@ -99,6 +99,20 @@ limit czasu jednego przebiegu.
 > `scheduler:run` kończy się **kodem wyjścia 123**, gdy kopia ma być wznowiona.
 > To nie błąd, ale cron potraktuje to jak niepowodzenie i wyśle maila.
 
+## Niezależność od Akeeba Ltd
+
+To niezależna wtyczka. Nie jest tworzona, wspierana ani firmowana przez Akeeba Ltd.
+„Akeeba" i „Akeeba Backup" to znaki towarowe Akeeba Ltd, użyte tu wyłącznie opisowo,
+żeby wskazać, z czym wtyczka współpracuje.
+
+Wtyczka nie zawiera kodu Akeeba Backup — korzysta w czasie działania z klas
+zainstalowanego komponentu. Nie zastępuje też wersji Professional: daje jedną funkcję
+harmonogramu, a nie pozostałe możliwości płatnego wydania.
+
 ## Licencja
 
-GNU General Public License w wersji 2 lub nowszej.
+GNU General Public License w wersji 3 lub nowszej — pełny tekst w [LICENSE.txt](LICENSE.txt).
+
+Akeeba Backup jest rozpowszechniana na GPL w wersji 3 lub nowszej. Ta wtyczka działa
+wyłącznie razem z nią, więc dzieli tę samą licencję, żeby nie było wątpliwości co do
+zgodności obu części.
