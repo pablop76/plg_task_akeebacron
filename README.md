@@ -65,24 +65,20 @@ w panelu hostingu, uruchamiana na przykład co 15 minut:
 
 Ścieżkę do PHP i do katalogu witryny odczytasz w panelu swojego hostingu.
 
-Gdy cron już działa, wróć do zadania i ustaw **Limit czasu jednego przebiegu**
-na `0` — kopia pójdzie wtedy jednym ciągiem.
+Gdy cron już działa, wróć do zadania i ustaw:
 
-Zostaje jeszcze zadbać o to, żeby kopia nie ruszała z ruchu odwiedzających.
-Służy do tego `Zadania planowane → Opcje → Planowanie z opóźnieniem`, ustawione
-na **Wyłączone**. Opcja obejmuje całą witrynę, więc od tej chwili na cron czekają
-wszystkie zadania, nie tylko kopia.
+- **Limit czasu jednego przebiegu** na `0` — kopia pójdzie jednym ciągiem
+- **Uruchamiaj tylko z wiersza poleceń** na `Tak` — kopia przestanie ruszać
+  z ruchu odwiedzających i z webcrona
 
-> Joomla zna też ustawienie „tylko z wiersza poleceń" dla pojedynczego zadania —
-> to kolumna `cli_exclusive` w tabeli `#__scheduler_tasks`. **Formularz zadania nie
-> ma dla niej pola**, więc jedyną drogą jest zapytanie SQL (`#__` zamień na prefiks
-> swojej bazy):
->
-> ```sql
-> UPDATE `#__scheduler_tasks` SET `cli_exclusive` = 1 WHERE `id` = ID_ZADANIA;
-> ```
->
-> Przy wyłączonym planowaniu z opóźnieniem nie jest potrzebna.
+> Drugie pole dokłada ta wtyczka. Joomla trzyma to ustawienie w kolumnie
+> `cli_exclusive` tabeli `#__scheduler_tasks` i respektuje je od wersji 4.1, ale
+> własnego pola w formularzu zadania nie ma — bez wtyczki dałoby się je włączyć
+> wyłącznie zapytaniem SQL.
+
+Efekt obejmujący całą witrynę daje `Zadania planowane → Opcje → Planowanie
+z opóźnieniem` ustawione na **Wyłączone**. Wtedy na cron czekają wszystkie
+zadania, nie tylko kopia.
 
 > `scheduler:run` kończy się **kodem wyjścia 123**, gdy kopia ma być wznowiona.
 > To nie błąd, ale cron potraktuje to jak niepowodzenie i wyśle maila.
@@ -125,6 +121,7 @@ na `Gdy ostatnia kopia jest starsza niż podany czas` i podaj liczbę godzin.
 | **Dopuszczalny wiek ostatniej kopii** | Godziny, używane tylko przy własnym progu. |
 | **Opis kopii** | Widoczny na liście kopii. Puste pole oznacza opis domyślny Akeeby. |
 | **Limit czasu jednego przebiegu** | Sekundy. Po przekroczeniu zadanie zwraca `WILL_RESUME` i wznawia kopię przy kolejnym uruchomieniu. `0` wykonuje całą kopię w jednym przebiegu. |
+| **Uruchamiaj tylko z wiersza poleceń** | `Tak` sprawia, że zadanie pomijają wyzwalacze przeglądarkowe: planowanie z opóźnieniem i webcron. Pole dokłada ta wtyczka, Joomla trzyma jego wartość w kolumnie `cli_exclusive`. |
 
 ## Próg świeżości z wtyczki quickicon
 

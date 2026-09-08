@@ -62,4 +62,19 @@
 			/>
 		</fieldset>
 	</fields>
+	<fieldset name="task_params">
+		<field
+			name="cli_exclusive"
+			type="radio"
+			layout="joomla.form.field.radio.switcher"
+			label="PLG_TASK_AKEEBACRON_BACKUP_CLIONLY_LABEL"
+			description="PLG_TASK_AKEEBACRON_BACKUP_CLIONLY_DESC"
+			default="0"
+			validate="options"
+			filter="int"
+		>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+	</fieldset>
 </form>
