@@ -65,10 +65,24 @@ w panelu hostingu, uruchamiana na przykład co 15 minut:
 
 Ścieżkę do PHP i do katalogu witryny odczytasz w panelu swojego hostingu.
 
-Gdy cron już działa, wróć do zadania i ustaw:
+Gdy cron już działa, wróć do zadania i ustaw **Limit czasu jednego przebiegu**
+na `0` — kopia pójdzie wtedy jednym ciągiem.
 
-- **Limit czasu jednego przebiegu** na `0` — kopia pójdzie jednym ciągiem
-- **Tylko CLI** na tak — żeby kopia nigdy nie odpalała się z ruchu odwiedzających
+Zostaje jeszcze zadbać o to, żeby kopia nie ruszała z ruchu odwiedzających.
+Służy do tego `Zadania planowane → Opcje → Planowanie z opóźnieniem`, ustawione
+na **Wyłączone**. Opcja obejmuje całą witrynę, więc od tej chwili na cron czekają
+wszystkie zadania, nie tylko kopia.
+
+> Joomla zna też ustawienie „tylko z wiersza poleceń" dla pojedynczego zadania —
+> to kolumna `cli_exclusive` w tabeli `#__scheduler_tasks`. **Formularz zadania nie
+> ma dla niej pola**, więc jedyną drogą jest zapytanie SQL (`#__` zamień na prefiks
+> swojej bazy):
+>
+> ```sql
+> UPDATE `#__scheduler_tasks` SET `cli_exclusive` = 1 WHERE `id` = ID_ZADANIA;
+> ```
+>
+> Przy wyłączonym planowaniu z opóźnieniem nie jest potrzebna.
 
 > `scheduler:run` kończy się **kodem wyjścia 123**, gdy kopia ma być wznowiona.
 > To nie błąd, ale cron potraktuje to jak niepowodzenie i wyśle maila.
