@@ -65,7 +65,8 @@ w panelu hostingu, uruchamiana na przykład co 15 minut:
 
 Ścieżkę do PHP i do katalogu witryny odczytasz w panelu swojego hostingu.
 
-Gdy cron już działa, wróć do zadania i w zakładce **Wzbogacone** ustaw:
+Gdy cron już działa, wróć do zadania i w sekcji **Parametry zadania**
+(zakładka **Wzbogacone**) ustaw:
 
 - **Limit czasu jednego przebiegu** na `0` — kopia pójdzie jednym ciągiem
 - **Uruchamiaj tylko z wiersza poleceń** na `Tak` — kopia przestanie ruszać
