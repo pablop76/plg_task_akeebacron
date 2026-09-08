@@ -65,7 +65,7 @@ w panelu hostingu, uruchamiana na przykład co 15 minut:
 
 Ścieżkę do PHP i do katalogu witryny odczytasz w panelu swojego hostingu.
 
-Gdy cron już działa, wróć do zadania i ustaw:
+Gdy cron już działa, wróć do zadania i w zakładce **Wzbogacone** ustaw:
 
 - **Limit czasu jednego przebiegu** na `0` — kopia pójdzie jednym ciągiem
 - **Uruchamiaj tylko z wiersza poleceń** na `Tak` — kopia przestanie ruszać
@@ -76,8 +76,8 @@ Gdy cron już działa, wróć do zadania i ustaw:
 > własnego pola w formularzu zadania nie ma — bez wtyczki dałoby się je włączyć
 > wyłącznie zapytaniem SQL.
 
-Efekt obejmujący całą witrynę daje `Zadania planowane → Opcje → Planowanie
-z opóźnieniem` ustawione na **Wyłączone**. Wtedy na cron czekają wszystkie
+Efekt obejmujący całą witrynę daje `Zadania planowane → Opcje → Planowane
+z opóźnieniem` przestawione na **Wyłączony**. Wtedy na cron czekają wszystkie
 zadania, nie tylko kopia.
 
 > `scheduler:run` kończy się **kodem wyjścia 123**, gdy kopia ma być wznowiona.
