@@ -26,6 +26,9 @@ zdecydować, kto ma je szturchać.
 1. `System → Instaluj rozszerzenia` → wgraj paczkę `plg_task_akeebacron-*.zip`
 2. `System → Wtyczki` → wpisz w wyszukiwarkę `akeebacron` → przełącz na **włączoną**
 
+Kolejne wersje przychodzą już przez `System → Aktualizacje`. Wtyczka zgłasza się do
+serwera aktualizacji na GitHubie, więc paczki nie trzeba wgrywać ręcznie drugi raz.
+
 ## Krok 2: utwórz zadanie
 
 `System → Zadania planowane → Nowe → Akeeba Backup: wykonaj kopię`
@@ -168,6 +171,23 @@ Jeżeli CLI PHP nie ma włączonego rozszerzenia zip:
 ```
 php -d extension_dir="C:/laragon/bin/php/php-8.3.30-Win32-vs16-x64/ext" -d extension=php_zip.dll build.php
 ```
+
+## Wydanie nowej wersji
+
+Serwerem aktualizacji jest plik `updates.xml` na osobnej gałęzi `release`, wskazany
+w manifeście przez `<updateservers>`. Joomla czyta go anonimowo z `raw.githubusercontent.com`
+i stamtąd pobiera paczkę z wydania, dlatego repozytorium musi pozostać publiczne.
+
+Kolejność kroków:
+
+1. podbij `<version>` i `<creationDate>` w `akeebacron.xml`
+2. zbuduj paczkę (`php build.php`) i zacommituj wersję na `main`
+3. `gh release create vX.Y.Z dist/plg_task_akeebacron-X.Y.Z.zip`
+4. na gałęzi `release` zaktualizuj w `updates.xml` `<version>`, `<downloadurl>`
+   i `<sha256>`, licząc sumę z paczki już opublikowanej w wydaniu
+
+Joomla porównuje `<sha256>` z pobranym plikiem, więc rozjazd sumy zatrzymuje
+aktualizację z błędem.
 
 ## Test z wiersza poleceń
 

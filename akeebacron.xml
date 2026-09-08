@@ -16,4 +16,7 @@
 		<folder>src</folder>
 		<filename>LICENSE.txt</filename>
 	</files>
+	<updateservers>
+		<server type="extension" name="Akeebacron Plugin Updates">https://raw.githubusercontent.com/pablop76/plg_task_akeebacron/release/updates.xml</server>
+	</updateservers>
 </extension>
