@@ -25,6 +25,22 @@ Stąd nazwa `akeebacron`.
 Zwykła instalacja paczki ZIP przez `System → Instaluj rozszerzenia`, następnie
 włączenie wtyczki **„Zadanie – Akeeba Backup (cron)"** w menedżerze wtyczek.
 
+## Budowanie paczki
+
+```
+php build.php
+```
+
+Skrypt czyta wersję i listę katalogów wprost z manifestu i zapisuje archiwum
+w `dist/`. Do paczki trafia wyłącznie to, co deklaruje manifest — bez `README.md`,
+`build.php` i historii gita.
+
+Jeżeli CLI PHP nie ma włączonego rozszerzenia zip:
+
+```
+php -d extension_dir="C:/laragon/bin/php/php-8.3.30-Win32-vs16-x64/ext" -d extension=php_zip.dll build.php
+```
+
 ## Konfiguracja zadania
 
 `System → Zadania planowane → Nowe → Akeeba Backup: wykonaj kopię`
